@@ -19,5 +19,6 @@ script:
 - bundle exec jekyll build 2> error.log
 - cat >&2 error.log
 - ( ! grep -qie Error -e Warn error.log )
+- ( ! find ./_site -type f -name '*.md' )
 - find ./_site \( -type d \( -name events -o -name training \) -prune -false \) -o \( -type f ! -name error.log -empty \)
 - find ./_site \( -type d \( -name events -o -name training \) -prune -false \) -o \( -type f ! -name error.log -empty \) | ( ! read )
